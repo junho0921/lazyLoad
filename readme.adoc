@@ -1,0 +1,37 @@
+= lazyLoad
+
+== 简介
+
+图片延迟加载, 仅对在显示区域内的图片进行加载
+
+延迟加载的图片标签的书写格式::
+
+1. 添加lazy类
+2. 添加属性data-original, 值为所加载的图片路径
+3. 延迟加载图片的src值是预置图
+ 示范: `<img src='placeHoledImage.jpg' class='lazy' data-original='./img/01.jpg'/>`
+
+注意点::
+1. container须有滚动属性;
+2. 延迟加载的图片须设近似所加载图片高度的min-height;
+
+== 依赖
+
+`jQuery`
+
+== 参数
+[source, javascript]
+----
+@param {object} configs - 配置
+@param {string} configs.container - 图片浏览滚动的容器的css选择器字符串<br/>
+@param {number} configs.threshold - 图片露出多少比例才加载的系数, 默认值是0.5 <br/>
+----
+
+== 使用示范
+[source, javascript]
+----
+var imgLoader = new LazyLoad({
+    container: '#imgContainer',
+    threshold: 0.3
+});
+----
